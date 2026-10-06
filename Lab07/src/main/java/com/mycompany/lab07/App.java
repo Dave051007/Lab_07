@@ -78,10 +78,10 @@ public class App extends Application {
                 ellipse
         );
 
-        scale.setFromX(0.5);
-        scale.setFromY(0.5);
-        scale.setToX(1.0);
-        scale.setToY(1.0);
+        scale.setFromX(1.0);
+        scale.setFromY(1.0);
+        scale.setToX(2.0);
+        scale.setToY(2.0);
         
         RotateTransition rotate = new RotateTransition(
                 Duration.seconds(2),
@@ -127,10 +127,22 @@ public class App extends Application {
         start.setOnAction(e -> {
             pathTransition.play();
             sequentialTransition.play();
+            start.setDisable(true);
         });
         
-        
+        reset.setOnAction(e -> {
+            pathTransition.stop();
+            sequentialTransition.stop();
 
+            ellipse.setCenterX(320);
+            ellipse.setCenterY(230);
+            ellipse.setOpacity(1.0);
+            ellipse.setScaleX(1.0);
+            ellipse.setScaleY(1.0);
+            ellipse.setTranslateY(0);
+            
+            start.setDisable(false);
+        });
         
         root.setCenter(animationPane);
         root.setBottom(buttons);
