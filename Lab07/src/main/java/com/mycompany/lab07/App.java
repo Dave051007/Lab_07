@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -18,9 +19,18 @@ public class App extends Application {
     public void start(Stage stage) {
         Pane root = new Pane();
         
+        Rectangle rect = new Rectangle(20, 20, 600, 400);
+        rect.setArcHeight(50);
+        rect.setArcWidth(50);
+        rect.setFill(Color.WHITE);
+        rect.setStroke(Color.BLACK);
+        
+        root.getChildren().addAll(
+                rect
+        );
         
         
-        Scene scene = new Scene(root, 400, 400);
+        Scene scene = new Scene(root, 650, 450);
         stage.setScene(scene);
         stage.show();
     }
