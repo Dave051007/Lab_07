@@ -2,6 +2,7 @@ package com.mycompany.lab07;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.PathTransition;
+import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -75,6 +76,14 @@ public class App extends Application {
         scale.setFromX(2.0);
         scale.setFromY(2.0);
         scale.setAutoReverse(true);
+        
+        RotateTransition rotate = new RotateTransition(
+                Duration.seconds(2),
+                ellipse
+        );
+
+        rotate.setToAngle(0.0);
+        rotate.setFromAngle(360.0);
         
         root.getChildren().addAll(
                 rect,
