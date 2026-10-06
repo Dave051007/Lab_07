@@ -2,6 +2,7 @@ package com.mycompany.lab07;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.PathTransition;
+import javafx.animation.ScaleTransition;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -65,6 +66,15 @@ public class App extends Application {
 
         fade.setFromValue(1.0);
         fade.setToValue(0.2);
+        
+        ScaleTransition scale = new ScaleTransition(
+                Duration.seconds(2),
+                ellipse
+        );
+
+        scale.setFromX(2.0);
+        scale.setFromY(2.0);
+        scale.setAutoReverse(true);
         
         root.getChildren().addAll(
                 rect,
