@@ -8,7 +8,9 @@ import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -29,7 +31,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        Pane root = new Pane();
+        BorderPane root = new BorderPane();
+        Pane animationPane = new Pane();
         
         Rectangle rect = new Rectangle(20, 20, 600, 400);
         rect.setArcHeight(50);
@@ -103,12 +106,14 @@ public class App extends Application {
         );
         
         sequentialTransition.play();
-         
-        root.getChildren().addAll(
+        
+        animationPane.getChildren().addAll(
                 rect,
                 circ,
                 ellipse
         );
+        
+        root.setCenter(animationPane);
         
         Scene scene = new Scene(root, 650, 450);
         stage.setScene(scene);
