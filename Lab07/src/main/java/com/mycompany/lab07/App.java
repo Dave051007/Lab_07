@@ -4,6 +4,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.PathTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -84,6 +85,13 @@ public class App extends Application {
 
         rotate.setToAngle(0.0);
         rotate.setFromAngle(360.0);
+        
+         TranslateTransition translation = new TranslateTransition(
+                Duration.seconds(2),
+                ellipse
+        );
+         
+        translation.setToY(130);
         
         root.getChildren().addAll(
                 rect,
