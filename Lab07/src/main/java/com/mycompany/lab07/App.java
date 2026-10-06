@@ -65,8 +65,6 @@ public class App extends Application {
         pathTransition.setDuration(Duration.millis(8000));
         pathTransition.setCycleCount(1);
         
-        pathTransition.play();
-        
         FadeTransition fade = new FadeTransition(
                 Duration.seconds(2.25),
                 ellipse
@@ -107,8 +105,6 @@ public class App extends Application {
                 translation
         );
         
-        sequentialTransition.play();
-        
         animationPane.getChildren().addAll(
                 rect,
                 circ,
@@ -127,6 +123,14 @@ public class App extends Application {
         );
         
         buttons.setAlignment(Pos.CENTER);
+        
+        start.setOnAction(e -> {
+            pathTransition.play();
+            sequentialTransition.play();
+        });
+        
+        
+
         
         root.setCenter(animationPane);
         root.setBottom(buttons);
