@@ -7,10 +7,12 @@ import javafx.animation.ScaleTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -66,7 +68,7 @@ public class App extends Application {
         pathTransition.play();
         
         FadeTransition fade = new FadeTransition(
-                Duration.seconds(2),
+                Duration.seconds(2.25),
                 ellipse
         );
 
@@ -113,7 +115,21 @@ public class App extends Application {
                 ellipse
         );
         
+        Button start = new Button("Start");
+        Button reset = new Button("Reset");
+        Button exit = new Button("Exit");
+        
+        HBox buttons = new HBox(10);
+        buttons.getChildren().addAll(
+                start,
+                reset,
+                exit
+        );
+        
+        buttons.setAlignment(Pos.CENTER);
+        
         root.setCenter(animationPane);
+        root.setBottom(buttons);
         
         Scene scene = new Scene(root, 650, 450);
         stage.setScene(scene);
