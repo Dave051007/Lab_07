@@ -4,6 +4,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.PathTransition;
 import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -93,6 +94,15 @@ public class App extends Application {
          
         translation.setToY(130);
         
+        SequentialTransition sequentialTransition = new SequentialTransition(
+                fade,
+                scale,
+                rotate,
+                translation
+        );
+        
+        sequentialTransition.play();
+         
         root.getChildren().addAll(
                 rect,
                 circ,
