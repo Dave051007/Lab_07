@@ -75,9 +75,10 @@ public class App extends Application {
                 ellipse
         );
 
-        scale.setFromX(2.0);
-        scale.setFromY(2.0);
-        scale.setAutoReverse(true);
+        scale.setFromX(0.5);
+        scale.setFromY(0.5);
+        scale.setToX(1.0);
+        scale.setToY(1.0);
         
         RotateTransition rotate = new RotateTransition(
                 Duration.seconds(2),
@@ -87,12 +88,12 @@ public class App extends Application {
         rotate.setToAngle(0.0);
         rotate.setFromAngle(360.0);
         
-         TranslateTransition translation = new TranslateTransition(
+        TranslateTransition translation = new TranslateTransition(
                 Duration.seconds(2),
                 ellipse
         );
          
-        translation.setToY(130);
+        translation.setToY(100);
         
         SequentialTransition sequentialTransition = new SequentialTransition(
                 fade,
