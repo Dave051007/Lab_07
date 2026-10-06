@@ -144,6 +144,10 @@ public class App extends Application {
             start.setDisable(false);
         });
         
+        exit.setOnAction(e -> {
+            stage.close();
+        });
+        
         root.setCenter(animationPane);
         root.setBottom(buttons);
         
