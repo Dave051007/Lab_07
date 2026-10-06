@@ -1,5 +1,6 @@
 package com.mycompany.lab07;
 
+import javafx.animation.PathTransition;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -8,9 +9,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 /**
@@ -36,6 +40,22 @@ public class App extends Application {
         ellipse.setFill(Color.BURLYWOOD);
         ellipse.setCenterX(320);
         ellipse.setCenterY(230);
+        
+        Path path = new Path();
+        
+        path.getElements().add(new MoveTo(20, 20));
+        path.getElements().add(new LineTo(620, 20));
+        path.getElements().add(new LineTo(620, 420));
+        path.getElements().add(new LineTo(20, 420));
+        path.getElements().add(new LineTo(20, 20));
+        
+        PathTransition pathTransition = new PathTransition();
+        pathTransition.setNode(circ);
+        pathTransition.setPath(path);
+        pathTransition.setDuration(Duration.millis(8000));
+        pathTransition.setCycleCount(1);
+        
+        pathTransition.play();
         
         root.getChildren().addAll(
                 rect,
