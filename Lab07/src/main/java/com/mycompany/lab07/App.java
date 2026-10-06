@@ -1,5 +1,6 @@
 package com.mycompany.lab07;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.PathTransition;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -56,6 +57,14 @@ public class App extends Application {
         pathTransition.setCycleCount(1);
         
         pathTransition.play();
+        
+        FadeTransition fade = new FadeTransition(
+                Duration.seconds(2),
+                ellipse
+        );
+
+        fade.setFromValue(1.0);
+        fade.setToValue(0.2);
         
         root.getChildren().addAll(
                 rect,
