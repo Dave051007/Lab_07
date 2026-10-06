@@ -7,6 +7,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -26,13 +28,20 @@ public class App extends Application {
         rect.setFill(Color.WHITE);
         rect.setStroke(Color.BLACK);
         
-        Circle circ = new Circle(50, Color.AQUA);
+        Circle circ = new Circle(20, Color.AQUA);
+        circ.setCenterX(20);
+        circ.setCenterY(20);
+        
+        Ellipse ellipse = new Ellipse(80, 40);
+        ellipse.setFill(Color.BURLYWOOD);
+        ellipse.setCenterX(320);
+        ellipse.setCenterY(230);
         
         root.getChildren().addAll(
                 rect,
-                circ
+                circ,
+                ellipse
         );
-        
         
         Scene scene = new Scene(root, 650, 450);
         stage.setScene(scene);
